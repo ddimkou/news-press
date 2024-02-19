@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --dark-gray: #1d2125;
+  --light-gray: #ecf0f1;
+  --accent-color: #3498db;
+  --highlight: #efc514;
+}
+body {
+  background-color: var(--dark-gray);
+  color: var(--light-gray);
+  font-family: "Roboto", sans-serif;
+}
+.banner-logo {
+  text-align: center;
+  margin: 1em 0;
+}
+.banner-logo img {
+  width: 200px;
+}
