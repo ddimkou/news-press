@@ -2,25 +2,20 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
+import { Box } from "@mui/material";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <Router>
-      <div className="banner-logo">
+      <Box className="banner-logo">
         <Link to="/">
           <img src="./news-press-logo.png" alt="News-Press Logo" />
         </Link>
-      </div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
+      </Box>
+      <Box>
+        <Navbar />
+      </Box>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
