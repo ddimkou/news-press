@@ -1,6 +1,14 @@
-import { Box } from "@mui/material";
+import { useEffect } from "react";
+import { Box, Typography } from "@mui/material";
+import { Articles } from "../pages/Home/HomePage";
 
-const TopContainer = () => {
+interface TopContainerProps {
+  topHeadlines: Articles[];
+}
+const TopContainer = ({ topHeadlines }: TopContainerProps) => {
+  useEffect(() => {
+    console.log(topHeadlines);
+  }, [topHeadlines]);
   return (
     <Box
       display="flex"
@@ -13,11 +21,25 @@ const TopContainer = () => {
       <Box
         height="30em"
         sx={{
-          background: "black",
           width: { xs: "18em", md: "25em", xl: "35em" },
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundImage:
+            topHeadlines.length > 0
+              ? `url(${topHeadlines[0].urlToImage})`
+              : "none",
+          backgroundColor: topHeadlines.length > 0 ? "transparent" : "black",
         }}
       >
-        Featured
+        <Typography
+          variant="h6"
+          sx={{ color: "white", textShadow: "2px 2px 8px rgba(0,0,0,0.8)" }}
+        >
+          {topHeadlines.length > 0 ? topHeadlines[0].title : "Loading..."}
+        </Typography>
       </Box>
       <Box
         display="flex"
@@ -32,7 +54,7 @@ const TopContainer = () => {
             height: "calc(50% - 0.5em)",
           }}
         >
-          Sport
+          Sports
         </Box>
         <Box
           sx={{
@@ -41,7 +63,7 @@ const TopContainer = () => {
             height: "calc(50% - 0.5em)",
           }}
         >
-          Tech
+          Technologies
         </Box>
       </Box>
     </Box>

@@ -17,7 +17,7 @@ const SecondContainer = () => {
           width: { xs: "18em", md: "32em", xl: "52em" },
         }}
       >
-        Popular
+        Entertainment
       </Box>
       <Box
         height="30em"
