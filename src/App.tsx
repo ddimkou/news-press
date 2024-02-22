@@ -10,7 +10,7 @@ const App = () => {
     <Router>
       <Box className="banner-logo">
         <Link to="/">
-          <img src="./news-press-logo.png" alt="News-Press Logo" />
+          <img src="./news-press-logo2.png" alt="News-Press Logo" />
         </Link>
       </Box>
       <Box>
