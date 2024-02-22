@@ -17,12 +17,11 @@ const TopContainer = () => {
           width: { xs: "18em", md: "25em", xl: "35em" },
         }}
       >
-        Box1
+        Featured
       </Box>
       <Box
         display="flex"
         flexDirection="column"
-        // gap={2}
         height="30em"
         sx={{ gap: { sm: "8px", md: "16px" } }}
       >
@@ -33,7 +32,7 @@ const TopContainer = () => {
             height: "calc(50% - 0.5em)",
           }}
         >
-          Box2
+          Sport
         </Box>
         <Box
           sx={{
@@ -42,7 +41,7 @@ const TopContainer = () => {
             height: "calc(50% - 0.5em)",
           }}
         >
-          Box3
+          Tech
         </Box>
       </Box>
     </Box>

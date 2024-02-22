@@ -4,6 +4,7 @@ import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
 import { Box } from "@mui/material";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
