@@ -1,14 +1,13 @@
-import { useEffect } from "react";
 import { Box, Typography } from "@mui/material";
-import { Articles } from "../pages/Home/HomePage";
+import { Articles } from "../utils/FetchApi";
 
 interface TopContainerProps {
-  topHeadlines: Articles[];
+  general: Articles[];
+  sports: Articles[];
+  technology: Articles[];
 }
-const TopContainer = ({ topHeadlines }: TopContainerProps) => {
-  useEffect(() => {
-    console.log(topHeadlines);
-  }, [topHeadlines]);
+
+const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
   return (
     <Box
       display="flex"
@@ -24,21 +23,13 @@ const TopContainer = ({ topHeadlines }: TopContainerProps) => {
           width: { xs: "18em", md: "25em", xl: "35em" },
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          backgroundImage: `url(${general[1]?.urlToImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundImage:
-            topHeadlines.length > 0
-              ? `url(${topHeadlines[0].urlToImage})`
-              : "none",
-          backgroundColor: topHeadlines.length > 0 ? "transparent" : "black",
         }}
       >
-        <Typography
-          variant="h6"
-          sx={{ color: "white", textShadow: "2px 2px 8px rgba(0,0,0,0.8)" }}
-        >
-          {topHeadlines.length > 0 ? topHeadlines[0].title : "Loading..."}
+        <Typography variant="h6" sx={{ color: "white" }}>
+          {general[1]?.title}
         </Typography>
       </Box>
       <Box
@@ -52,18 +43,24 @@ const TopContainer = ({ topHeadlines }: TopContainerProps) => {
             background: "black",
             width: { xs: "18em", md: "25em", xl: "35em" },
             height: "calc(50% - 0.5em)",
+            backgroundImage: `url(${sports[0]?.urlToImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
-          Sports
+          {sports[0]?.title}
         </Box>
         <Box
           sx={{
             background: "black",
             width: { xs: "18em", md: "25em", xl: "35em" },
             height: "calc(50% - 0.5em)",
+            backgroundImage: `url(${technology[0]?.urlToImage})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
-          Technologies
+          {technology[0]?.title}
         </Box>
       </Box>
     </Box>
