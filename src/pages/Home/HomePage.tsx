@@ -4,6 +4,7 @@ import SecondContainer from "../../components/SecondContainer";
 import TopContainer from "../../components/TopContainer";
 import ThirdContainer from "../../components/ThirdContainer";
 import FetchedData from "../../utils/FetchedData";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (

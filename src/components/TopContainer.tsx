@@ -18,19 +18,23 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
       sx={{ flexDirection: { xs: "column", md: "row" } }}
     >
       <Box
+        className="card-container card"
         height="30em"
         sx={{
           width: { xs: "18em", md: "25em", xl: "35em" },
-          display: "flex",
-          justifyContent: "center",
-          backgroundImage: `url(${general[1]?.urlToImage})`,
+          backgroundImage: `url(${general[2]?.urlToImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <Typography variant="h6" sx={{ color: "white" }}>
-          {general[1]?.title}
-        </Typography>
+        <Box className="label-container">
+          <Typography variant="body1">General</Typography>
+        </Box>
+        <Box className="title-container">
+          <Typography variant="subtitle2" sx={{ color: "white" }}>
+            {general[2]?.title}
+          </Typography>
+        </Box>
       </Box>
       <Box
         display="flex"

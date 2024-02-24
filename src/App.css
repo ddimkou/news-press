@@ -3,11 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --dark-gray: #1d2125;
   --light-gray: #f1f0ec;
-  --accent-color: #f0b432;
-  --highlight: #ff8c00;
+  --accent-color: #ff8c00;
+  --highlight: #f0b432;
+  --dark-text: #1b1b1b;
   line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
