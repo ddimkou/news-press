@@ -3,16 +3,27 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 0.5em;
+  border-radius: 6px;
 }
 
 .card-container .label-container {
   background-color: var(--accent-color);
-  color: var(--dark-text);
+  color: #fff;
   width: fit-content;
-  padding: 6px;
+  padding: 2px 4px;
   border-radius: 4px;
-
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.label-container:hover {
+  background-color: var(--highlight);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 
-  transition: all 0.3s ease;
+.card-container .title-container {
+  padding: 2px 4px;
+  background-color: var(--text-background);
+  border-radius: 4px;
+  cursor: pointer;
 }

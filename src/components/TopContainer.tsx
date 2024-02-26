@@ -22,7 +22,7 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
         height="30em"
         sx={{
           width: { xs: "18em", md: "25em", xl: "35em" },
-          backgroundImage: `url(${general[2]?.urlToImage})`,
+          backgroundImage: `url(${general[0]?.urlToImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -31,9 +31,7 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
           <Typography variant="body1">General</Typography>
         </Box>
         <Box className="title-container">
-          <Typography variant="subtitle2" sx={{ color: "white" }}>
-            {general[2]?.title}
-          </Typography>
+          <Typography variant="subtitle2">{general[0]?.title}</Typography>
         </Box>
       </Box>
       <Box
@@ -43,6 +41,7 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
         sx={{ gap: { sm: "8px", md: "16px" } }}
       >
         <Box
+          className="card-container card"
           sx={{
             background: "black",
             width: { xs: "18em", md: "25em", xl: "35em" },
@@ -52,9 +51,15 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
             backgroundPosition: "center",
           }}
         >
-          {sports[0]?.title}
+          <Box className="label-container">
+            <Typography variant="body1">Sports</Typography>
+          </Box>
+          <Box className="title-container">
+            <Typography variant="subtitle2">{sports[0]?.title}</Typography>
+          </Box>
         </Box>
         <Box
+          className="card-container card"
           sx={{
             background: "black",
             width: { xs: "18em", md: "25em", xl: "35em" },
@@ -64,7 +69,12 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
             backgroundPosition: "center",
           }}
         >
-          {technology[0]?.title}
+          <Box className="label-container">
+            <Typography variant="body1">Technology</Typography>
+          </Box>
+          <Box className="title-container">
+            <Typography variant="subtitle2">{technology[0]?.title}</Typography>
+          </Box>
         </Box>
       </Box>
     </Box>
