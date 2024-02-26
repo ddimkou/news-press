@@ -7,7 +7,7 @@ const Footer = () => {
         bgcolor: "black",
         color: "var(--accent-color)",
         py: 3,
-        mt: "3em",
+        mt: "12em",
       }}
     >
       <Typography variant="body1" align="center">

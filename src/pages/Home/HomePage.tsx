@@ -10,15 +10,21 @@ const HomePage = () => {
   return (
     <Container>
       <FetchedData>
-        {({ generalNews, sportsNews, technologyNews }) => (
+        {({
+          generalNews,
+          sportsNews,
+          technologyNews,
+          entertainmentNews,
+          businessNews,
+        }) => (
           <>
             <TopContainer
               general={generalNews}
               sports={sportsNews}
               technology={technologyNews}
             />
-            <SecondContainer />
-            <ThirdContainer />
+            <SecondContainer entertainment={entertainmentNews} />
+            <ThirdContainer business={businessNews} />
           </>
         )}
       </FetchedData>

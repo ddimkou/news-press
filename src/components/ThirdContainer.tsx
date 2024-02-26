@@ -1,6 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { Articles } from "../utils/FetchApi";
 
-const ThirdContainer = () => {
+interface ThirdContainerProps {
+  business: Articles[];
+}
+const ThirdContainer = ({ business }: ThirdContainerProps) => {
   return (
     <Box
       display="flex"
@@ -11,13 +15,21 @@ const ThirdContainer = () => {
       sx={{ flexDirection: { xs: "column", md: "row" } }}
     >
       <Box
+        className="card-container card"
         height="30em"
         sx={{
-          background: "black",
           width: { xs: "18em", md: "32em", xl: "52em" },
+          backgroundImage: `url(${business[0]?.urlToImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
-        Business
+        <Box className="label-container">
+          <Typography variant="body1">Business</Typography>
+        </Box>
+        <Box className="title-container">
+          <Typography variant="subtitle2">{business[0]?.title}</Typography>
+        </Box>
       </Box>
       <Box
         height="30em"
@@ -26,7 +38,7 @@ const ThirdContainer = () => {
           width: { xs: "18em" },
         }}
       >
-        Categories
+        Our Socials
       </Box>
     </Box>
   );
