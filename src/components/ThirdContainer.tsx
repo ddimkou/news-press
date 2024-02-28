@@ -4,6 +4,10 @@ import { Articles } from "../utils/FetchApi";
 interface ThirdContainerProps {
   business: Articles[];
 }
+// img null?
+const getImageUrl = (imageUrl: string | null | undefined): string => {
+  return imageUrl || "/NoImgFound.png";
+};
 const ThirdContainer = ({ business }: ThirdContainerProps) => {
   return (
     <Box
@@ -19,9 +23,7 @@ const ThirdContainer = ({ business }: ThirdContainerProps) => {
         height="30em"
         sx={{
           width: { xs: "18em", md: "32em", xl: "52em" },
-          backgroundImage: `url(${business[0]?.urlToImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: `url(${getImageUrl(business[0]?.urlToImage)})`,
         }}
       >
         <Box className="label-container">

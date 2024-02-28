@@ -7,6 +7,10 @@ interface TopContainerProps {
   technology: Articles[];
 }
 
+// img null?
+const getImageUrl = (imageUrl: string | null | undefined): string => {
+  return imageUrl || "/NoImgFound.png";
+};
 const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
   return (
     <Box
@@ -22,9 +26,7 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
         height="30em"
         sx={{
           width: { xs: "18em", md: "25em", xl: "35em" },
-          backgroundImage: `url(${general[0]?.urlToImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: `url(${getImageUrl(general[0]?.urlToImage)})`,
         }}
       >
         <Box className="label-container">
@@ -43,12 +45,9 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
         <Box
           className="card-container card"
           sx={{
-            background: "black",
             width: { xs: "18em", md: "25em", xl: "35em" },
             height: "calc(50% - 0.5em)",
-            backgroundImage: `url(${sports[0]?.urlToImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundImage: `url(${getImageUrl(sports[0]?.urlToImage)})`,
           }}
         >
           <Box className="label-container">
@@ -61,12 +60,9 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
         <Box
           className="card-container card"
           sx={{
-            background: "black",
             width: { xs: "18em", md: "25em", xl: "35em" },
             height: "calc(50% - 0.5em)",
-            backgroundImage: `url(${technology[0]?.urlToImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundImage: `url(${getImageUrl(technology[0]?.urlToImage)})`,
           }}
         >
           <Box className="label-container">

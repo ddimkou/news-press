@@ -5,6 +5,10 @@ import SecondContainerCategories from "./SecondContainerCategories";
 interface SecondContainerProps {
   entertainment: Articles[];
 }
+// img null?
+const getImageUrl = (imageUrl: string | null | undefined): string => {
+  return imageUrl || "/NoImgFound.png";
+};
 const SecondContainer = ({ entertainment }: SecondContainerProps) => {
   return (
     <Box
@@ -20,9 +24,7 @@ const SecondContainer = ({ entertainment }: SecondContainerProps) => {
         height="22em"
         sx={{
           width: { xs: "18em", md: "32em", xl: "52em" },
-          backgroundImage: `url(${entertainment[0]?.urlToImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: `url(${getImageUrl(entertainment[0]?.urlToImage)})`,
         }}
       >
         <Box className="label-container">
