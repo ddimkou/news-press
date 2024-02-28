@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { Articles } from "../utils/FetchApi";
+import SecondContainerCategories from "./SecondContainerCategories";
 
 interface SecondContainerProps {
   entertainment: Articles[];
@@ -16,7 +17,7 @@ const SecondContainer = ({ entertainment }: SecondContainerProps) => {
     >
       <Box
         className="card-container card"
-        height="30em"
+        height="22em"
         sx={{
           width: { xs: "18em", md: "32em", xl: "52em" },
           backgroundImage: `url(${entertainment[0]?.urlToImage})`,
@@ -31,15 +32,7 @@ const SecondContainer = ({ entertainment }: SecondContainerProps) => {
           <Typography variant="subtitle2">{entertainment[0]?.title}</Typography>
         </Box>
       </Box>
-      <Box
-        height="30em"
-        sx={{
-          background: "black",
-          width: { xs: "18em" },
-        }}
-      >
-        Categories
-      </Box>
+      <SecondContainerCategories />
     </Box>
   );
 };
