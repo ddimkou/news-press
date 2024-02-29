@@ -15,12 +15,12 @@ const SecondContainer = ({ entertainment }: SecondContainerProps) => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      marginTop="4em"
+      marginTop="8em"
       gap={1}
       sx={{ flexDirection: { xs: "column", md: "row" } }}
     >
       <Box
-        className="card-container card"
+        className="card-container card social-container"
         height="22em"
         sx={{
           width: { xs: "18em", md: "32em", xl: "52em" },

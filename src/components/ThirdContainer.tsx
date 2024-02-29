@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { Articles } from "../utils/FetchApi";
+import ThirdContainerSocial from "./ThirdContainerSocial";
 
 interface ThirdContainerProps {
   business: Articles[];
@@ -14,7 +15,7 @@ const ThirdContainer = ({ business }: ThirdContainerProps) => {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      marginTop="4em"
+      marginTop="8em"
       gap={1}
       sx={{ flexDirection: { xs: "column", md: "row" } }}
     >
@@ -33,7 +34,7 @@ const ThirdContainer = ({ business }: ThirdContainerProps) => {
           <Typography variant="subtitle2">{business[0]?.title}</Typography>
         </Box>
       </Box>
-      <Box
+      {/* <Box
         height="30em"
         sx={{
           background: "black",
@@ -41,7 +42,8 @@ const ThirdContainer = ({ business }: ThirdContainerProps) => {
         }}
       >
         Our Socials
-      </Box>
+      </Box> */}
+      <ThirdContainerSocial />
     </Box>
   );
 };
