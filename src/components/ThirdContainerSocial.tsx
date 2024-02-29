@@ -1,28 +1,44 @@
 import { Box, Stack, Typography } from "@mui/material";
+type SocialColors = {
+  [key: string]: string;
+};
+const socialColors: SocialColors = {
+  Facebook: "#3b5998",
+  Instagram: "#E1306C",
+  TikTok: "#69C9D0",
+  Youtube: "#FF0000",
+  X: "#000",
+  Pinterest: "#E60023",
+};
 
 const socials = [
-  "Facebook",
-  "Instagram",
-  "TikTok",
-  "Youtube",
   "X",
   "Pinterest",
+  "Youtube",
+  "Instagram",
+  "Facebook",
+  "TikTok",
 ];
 
 const ThirdContainerSocial = () => {
   return (
     <Box
-      className="card-container category-container"
-      height="22em"
+      className="card-container social-container"
+      height="30em"
       display="flex"
-      justifyContent="center"
       sx={{
         width: { xs: "18em" },
       }}
     >
       <Stack direction="column" spacing={1.5}>
         {socials.map((social) => (
-          <Box className="category-box">
+          <Box
+            key={social}
+            className="category-box social-box"
+            sx={{
+              backgroundColor: socialColors[social],
+            }}
+          >
             <Typography variant="body1">{social}</Typography>
           </Box>
         ))}

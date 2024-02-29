@@ -75,3 +75,15 @@
   transform: translate(0px, 2px);
   transition-duration: 0.2s;
 }
+
+/* 3rd Container */
+.social-container {
+  padding: 0;
+}
+.social-box::before {
+  background-color: #fff;
+}
+.social-box:hover p {
+  color: #000;
+  z-index: 5555;
+}
