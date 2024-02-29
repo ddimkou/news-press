@@ -78,7 +78,7 @@
 
 /* 3rd Container */
 .social-container {
-  padding: 0;
+  padding: 0 8px;
 }
 .social-box::before {
   background-color: #fff;
