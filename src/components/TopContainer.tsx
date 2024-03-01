@@ -12,6 +12,10 @@ const getImageUrl = (imageUrl: string | null | undefined): string => {
   return imageUrl || "/NoImgFound.png";
 };
 const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
+  // open article url
+  const handleOpenArticle = (articleUrl: string) => {
+    window.open(articleUrl, "_blank");
+  };
   return (
     <Box
       display="flex"
@@ -22,11 +26,13 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
       sx={{ flexDirection: { xs: "column", md: "row" } }}
     >
       <Box
+        onClick={() => general[0]?.url && handleOpenArticle(general[0].url)}
         className="card-container card"
         height="30em"
         sx={{
           width: { xs: "18em", md: "25em", xl: "35em" },
           backgroundImage: `url(${getImageUrl(general[0]?.urlToImage)})`,
+          cursor: "pointer",
         }}
       >
         <Box className="label-container">
@@ -43,11 +49,13 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
         sx={{ gap: { sm: "8px", md: "16px" } }}
       >
         <Box
+          onClick={() => sports[0]?.url && handleOpenArticle(sports[0].url)}
           className="card-container card"
           sx={{
             width: { xs: "18em", md: "25em", xl: "35em" },
             height: "calc(50% - 0.5em)",
             backgroundImage: `url(${getImageUrl(sports[0]?.urlToImage)})`,
+            cursor: "pointer",
           }}
         >
           <Box className="label-container">
@@ -58,11 +66,15 @@ const TopContainer = ({ general, sports, technology }: TopContainerProps) => {
           </Box>
         </Box>
         <Box
+          onClick={() =>
+            technology[0]?.url && handleOpenArticle(technology[0].url)
+          }
           className="card-container card"
           sx={{
             width: { xs: "18em", md: "25em", xl: "35em" },
             height: "calc(50% - 0.5em)",
             backgroundImage: `url(${getImageUrl(technology[0]?.urlToImage)})`,
+            cursor: "pointer",
           }}
         >
           <Box className="label-container">

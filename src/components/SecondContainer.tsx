@@ -10,6 +10,10 @@ const getImageUrl = (imageUrl: string | null | undefined): string => {
   return imageUrl || "/NoImgFound.png";
 };
 const SecondContainer = ({ entertainment }: SecondContainerProps) => {
+  // open article url
+  const handleOpenArticle = (articleUrl: string) => {
+    window.open(articleUrl, "_blank");
+  };
   return (
     <Box
       display="flex"
@@ -20,11 +24,15 @@ const SecondContainer = ({ entertainment }: SecondContainerProps) => {
       sx={{ flexDirection: { xs: "column", md: "row" } }}
     >
       <Box
+        onClick={() =>
+          entertainment[0]?.url && handleOpenArticle(entertainment[0].url)
+        }
         className="card-container card social-container"
         height="22em"
         sx={{
           width: { xs: "18em", md: "32em", xl: "52em" },
           backgroundImage: `url(${getImageUrl(entertainment[0]?.urlToImage)})`,
+          cursor: "pointer",
         }}
       >
         <Box className="label-container">
