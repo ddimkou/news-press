@@ -5,6 +5,7 @@ import AboutPage from "./pages/About/AboutPage";
 import { Box } from "@mui/material";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ArticlesByCategories from "./pages/Categories/ArticlesByCategories";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/articles/:category" element={<ArticlesByCategories />} />
       </Routes>
       <Footer />
     </Router>

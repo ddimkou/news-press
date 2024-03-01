@@ -1,4 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
 const categories = [
   "Business",
   "Entertainment",
@@ -10,6 +12,12 @@ const categories = [
 ];
 
 const SecondContainerCategories = () => {
+  // Navigate
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (category: string) => {
+    navigate(`/articles/${category.toLowerCase()}`);
+  };
   return (
     <Box
       className="card-container category-container"
@@ -22,7 +30,10 @@ const SecondContainerCategories = () => {
     >
       <Stack direction="column" spacing={1.5}>
         {categories.map((category) => (
-          <Box className="category-box">
+          <Box
+            className="category-box"
+            onClick={() => handleCategoryClick(category)}
+          >
             <Typography variant="body1">{category}</Typography>
           </Box>
         ))}
