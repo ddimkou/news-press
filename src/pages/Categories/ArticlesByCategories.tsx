@@ -37,9 +37,20 @@ const ArticlesByCategories = () => {
   }
   return (
     <Box mt={2}>
-      <Typography variant="h4" textAlign="center">
+      <Typography
+        variant="h4"
+        textAlign="center"
+        sx={{
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+          fontWeight: "bold",
+          marginBottom: "2em",
+          color: "#ff9a1f",
+        }}
+      >
         {category} News
       </Typography>
+
       <Box
         display="flex"
         justifyContent="center"

@@ -13,7 +13,7 @@ const getImageUrl = (imageUrl: string | null | undefined): string => {
 const SecondContainer = ({ entertainment }: SecondContainerProps) => {
   // open article url
   const handleOpenArticle = (articleUrl: string) => {
-    window.open(articleUrl, "_blank");
+    window.open(articleUrl, "_blank", "noopener,noreferrer");
   };
 
   // Navigate to category's page
