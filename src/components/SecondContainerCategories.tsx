@@ -31,6 +31,7 @@ const SecondContainerCategories = () => {
       <Stack direction="column" spacing={1.5}>
         {categories.map((category) => (
           <Box
+            key={category}
             className="category-box"
             onClick={() => handleCategoryClick(category)}
           >
