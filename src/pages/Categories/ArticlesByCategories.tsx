@@ -1,20 +1,36 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchTopHeadlinesByCategory, Articles } from "../../utils/FetchApi";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, CircularProgress } from "@mui/material";
 
 const ArticlesByCategories = () => {
   const { category } = useParams();
   const [articles, setArticles] = useState<Articles[]>([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     if (category) {
+      setIsLoading(true);
       fetchTopHeadlinesByCategory(category)
-        .then(setArticles)
+        .then((articles) => {
+          setArticles(articles);
+          setIsLoading(false);
+        })
         .catch(console.error);
     }
   }, [category]);
 
+  if (isLoading) {
+    return (
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="100vh"
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
   return (
     <Box>
       <Typography variant="h4">{category} News</Typography>
