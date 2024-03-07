@@ -4,7 +4,8 @@ import { fetchTopHeadlinesByCategory, Articles } from "../../utils/FetchApi";
 import { Box, Typography, CircularProgress } from "@mui/material";
 import ArticlesFeed from "./ArticlesFeed";
 import SecondContainerCategories from "../../components/SecondContainerCategories";
-import "./ArticlesByCategory.css";
+
+import ThirdContainerSocial from "../../components/ThirdContainerSocial";
 
 const ArticlesByCategories = () => {
   const { category } = useParams();
@@ -48,7 +49,12 @@ const ArticlesByCategories = () => {
         sx={{ flexDirection: { xs: "column", md: "row" } }}
       >
         <ArticlesFeed articles={articles} />
-        <SecondContainerCategories />
+        <Box>
+          <SecondContainerCategories />
+          <Box mt={2}>
+            <ThirdContainerSocial />
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
