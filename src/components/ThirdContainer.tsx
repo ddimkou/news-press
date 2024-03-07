@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { Articles } from "../utils/FetchApi";
 import ThirdContainerSocial from "./ThirdContainerSocial";
+import { useNavigate } from "react-router-dom";
 
 interface ThirdContainerProps {
   business: Articles[];
@@ -14,6 +15,12 @@ const ThirdContainer = ({ business }: ThirdContainerProps) => {
   const handleOpenArticle = (articleUrl: string) => {
     window.open(articleUrl, "_blank");
   };
+
+  // Navigate to category's page
+  const navigate = useNavigate();
+  const navigateToCategory = (category: string) => {
+    navigate(`/articles/${category.toLowerCase()}`);
+  };
   return (
     <Box
       display="flex"
@@ -24,31 +31,27 @@ const ThirdContainer = ({ business }: ThirdContainerProps) => {
       sx={{ flexDirection: { xs: "column", md: "row" } }}
     >
       <Box
-        onClick={() => business[0]?.url && handleOpenArticle(business[0].url)}
         className="card-container card"
         height="30em"
         sx={{
           width: { xs: "18em", md: "32em", xl: "52em" },
           backgroundImage: `url(${getImageUrl(business[0]?.urlToImage)})`,
-          cursor: "pointer",
         }}
       >
-        <Box className="label-container">
+        <Box
+          className="label-container"
+          onClick={() => navigateToCategory("Business")}
+        >
           <Typography variant="body1">Business</Typography>
         </Box>
-        <Box className="title-container">
+        <Box
+          className="title-container"
+          onClick={() => business[0]?.url && handleOpenArticle(business[0].url)}
+        >
           <Typography variant="subtitle2">{business[0]?.title}</Typography>
         </Box>
       </Box>
-      {/* <Box
-        height="30em"
-        sx={{
-          background: "black",
-          width: { xs: "18em" },
-        }}
-      >
-        Our Socials
-      </Box> */}
+
       <ThirdContainerSocial />
     </Box>
   );
