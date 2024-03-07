@@ -31,7 +31,7 @@ const ArticlesByCategories = () => {
         alignItems="center"
         minHeight="100vh"
       >
-        <CircularProgress />
+        <CircularProgress color="secondary" />
       </Box>
     );
   }
