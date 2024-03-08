@@ -13,10 +13,10 @@ const Navbar = () => {
         justifyContent: "center",
       }}
     >
-      <Link to="/" style={{ padding: "16px" }}>
+      <Link to="/" className="navlink">
         Home
       </Link>
-      <Link to="/about" style={{ padding: "16px" }}>
+      <Link to="/about" className="navlink">
         About
       </Link>
     </Stack>
