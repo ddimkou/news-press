@@ -60,9 +60,17 @@ const ArticlesByCategories = () => {
         sx={{ flexDirection: { xs: "column", md: "row" } }}
       >
         <ArticlesFeed articles={articles} />
-        <Box>
+        <Box
+          sx={{
+            width: { xs: "100%", md: "auto" },
+            display: "flex",
+            flexDirection: { xs: "row", md: "column" },
+            justifyContent: { xs: "center" },
+            mt: { xs: "5em", md: "0" },
+          }}
+        >
           <SecondContainerCategories />
-          <Box mt={2}>
+          <Box mt={{ xs: "0em", md: "1em" }}>
             <ThirdContainerSocial />
           </Box>
         </Box>
