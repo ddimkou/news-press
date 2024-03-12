@@ -9,6 +9,7 @@ import ArticlesByCategories from "./pages/Categories/ArticlesByCategories";
 // theme
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme.ts";
+import Contact from "./pages/Contact/Contact.tsx";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
             path="/articles/:category"
             element={<ArticlesByCategories />}
           />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </Router>

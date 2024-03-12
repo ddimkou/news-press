@@ -19,6 +19,9 @@ const Navbar = () => {
       <Link to="/about" className="navlink">
         About
       </Link>
+      <Link to="/contact" className="navlink">
+        Contact us
+      </Link>
     </Stack>
   );
 };
