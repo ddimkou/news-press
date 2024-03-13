@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -7,27 +8,43 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
 
 const Contact = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [emailError, setEmailError] = useState<string>("");
+
+  // email regex
+  const validateEmail = (email: string): boolean => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setEmailError(""); // Reset email error
+
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email address!");
+      return;
+    }
+
     if (name && email && message) {
       setName("");
       setEmail("");
       setMessage("");
       setOpenSnackbar(true);
     } else {
-      console.log("fields are required");
+      console.log("All fields are required");
     }
   };
+
   const handleCloseSnackbar = () => {
     setOpenSnackbar(false);
   };
+
   return (
     <Container maxWidth="md">
       <Paper
@@ -61,11 +78,13 @@ const Contact = () => {
             onChange={(e) => setName(e.target.value)}
           />
           <TextField
+            error={!!emailError}
             id="outlined-email"
             label="Email:"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            helperText={emailError}
           />
           <TextField
             id="outlined-message"
@@ -85,11 +104,11 @@ const Contact = () => {
         open={openSnackbar}
         autoHideDuration={4000}
         onClose={handleCloseSnackbar}
-        message={`Thank you  for your message!`}
+        message={`Thank you for your message!`}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         ContentProps={{
           sx: {
-            justifyContent: "center", //center msg
+            justifyContent: "center", // Center the message
           },
         }}
       />
