@@ -1,6 +1,29 @@
-import { Box, Container, Paper, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
 
 const Contact = () => {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (name && email && message) {
+      console.log(`Form: ${name}, ${email}, ${message}`);
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      console.log("fields are required");
+    }
+  };
   return (
     <Container maxWidth="md">
       <Paper
@@ -12,7 +35,7 @@ const Contact = () => {
         }}
       >
         <Typography variant="h5" sx={{ marginBottom: "1em", color: "#ff8c00" }}>
-          Contact form
+          Contact Form
         </Typography>
         <Box
           component="form"
@@ -24,21 +47,34 @@ const Contact = () => {
           display="flex"
           flexDirection="column"
           alignItems="center"
+          onSubmit={handleSubmit}
         >
           <TextField
-            id="outlined-multiline-flexible"
+            id="outlined-name"
             label="Name:"
-            multiline
-            maxRows={4}
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
-          <TextField id="outlined-textarea" label="Email:" multiline />
           <TextField
-            id="outlined-multiline-static"
+            id="outlined-email"
+            label="Email:"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            id="outlined-message"
             label="Your Message:"
             multiline
             rows={6}
-            defaultValue=""
+            required
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
+          <Button type="submit" variant="contained">
+            Send
+          </Button>
         </Box>
       </Paper>
     </Container>
