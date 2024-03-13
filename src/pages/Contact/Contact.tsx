@@ -3,6 +3,7 @@ import {
   Button,
   Container,
   Paper,
+  Snackbar,
   TextField,
   Typography,
 } from "@mui/material";
@@ -12,17 +13,20 @@ const Contact = () => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
-
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (name && email && message) {
-      console.log(`Form: ${name}, ${email}, ${message}`);
       setName("");
       setEmail("");
       setMessage("");
+      setOpenSnackbar(true);
     } else {
       console.log("fields are required");
     }
+  };
+  const handleCloseSnackbar = () => {
+    setOpenSnackbar(false);
   };
   return (
     <Container maxWidth="md">
@@ -77,6 +81,18 @@ const Contact = () => {
           </Button>
         </Box>
       </Paper>
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={4000}
+        onClose={handleCloseSnackbar}
+        message={`Thank you  for your message!`}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        ContentProps={{
+          sx: {
+            justifyContent: "center", //center msg
+          },
+        }}
+      />
     </Container>
   );
 };
